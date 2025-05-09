@@ -42,7 +42,7 @@ class Linear(object):
         ######################################################################
         # Replace "pass" statement with your code
         N = x.shape[0]
-        x_reshaped = x.view(N, -1)
+        x_reshaped = x.reshape(N, -1)
         out = x_reshaped @ w + b
         ######################################################################
         #                        END OF YOUR CODE                            #
@@ -73,8 +73,8 @@ class Linear(object):
         ##################################################
         # Replace "pass" statement with your code
         N = x.shape[0]
-        dx = (dout @ w.t()).view(*x.shape)
-        dw = x.view(N, -1).t() @ dout
+        dx = (dout @ w.t()).reshape(*x.shape)
+        dw = x.reshape(N, -1).t() @ dout
         db = dout.sum(dim=0)
         ##################################################
         #                END OF YOUR CODE                #
